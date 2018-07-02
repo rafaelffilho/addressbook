@@ -1,4 +1,8 @@
 #!./venv/bin/python
+
+# Globals
+contacts = []
+choice = 1
 menu = '''
 (1) Add        contact
 (2) List       contacts
@@ -7,31 +11,40 @@ menu = '''
 (0) Exit
 '''
 
-def create_user():
+def create_contact():
     name = input('Name: ')
     phone = input('Phone number: ')
     email = input('Email: ')
     return {'name': name, 'phone': phone, 'email': email}
 
-contacts
+def print_contacts(id=False):
+    for idx, contact in enumerate(contacts):
+        if id: print (f'id: {idx+1}')
+        for key, val in contact.items():
+            print(f'{key}: {val}')
+        print('\n')
 
-choice = 1
 while choice != 0:
-    print(f'\n\n{menu}')
+    print(f'\n{menu}')
     choice = int(input('> '))
     if   choice == 0:
         print('Byee, have a great time')
         exit(0)
     elif choice == 1:
-        user = create_user()
-        for key, value in user.items():
-            print(f'key: {key}\tvalue: {value}')
-        # TODO: Add database interation
+        # TODO: Add contact to database
+        contact = create_contact()
+        contacts.append(contact)
     elif choice == 2:
-        pass
+        # TODO: Get contacts from database
+        print_contacts()
+        input()
     elif choice == 3:
-        pass
+        # TODO: Delete contact in database
+        print_contacts(id=True)
+        id = int(input('id to delete: '))
+        contacts.remove(contacts[id-1])
     elif choice == 4:
-        pass
+        # TODO: Delete contacts in database
+        contacts.clear()
     else:
         print('Invalid option')
