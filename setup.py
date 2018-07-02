@@ -6,5 +6,5 @@ setup(
     version = '1.0',
     author = 'Rafael F Filho',
     url = 'https://github.com/rafaelffilho/addressbook',
-    packages = ['requests', 'python-firebase']
+    install_requires = ['requests', 'python-firebase']
 )
