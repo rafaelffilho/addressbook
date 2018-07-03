@@ -4,10 +4,9 @@
 contacts = []
 choice = 1
 menu = '''
-(1) Add        contact
-(2) List       contacts
-(3) Delete     contact
-(4) Delete all contacts
+(1) Add    contact
+(2) List   contacts
+(3) Delete contact
 (0) Exit
 '''
 
@@ -43,8 +42,5 @@ while choice != 0:
         print_contacts(id=True)
         id = int(input('id to delete: '))
         contacts.remove(contacts[id-1])
-    elif choice == 4:
-        # TODO: Delete contacts in database
-        contacts.clear()
     else:
         print('Invalid option')
